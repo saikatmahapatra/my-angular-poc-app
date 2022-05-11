@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-angular-app';
+  isLoggedIn = false; // parent to child
+  
+  
+  // child to parent
+  btnClickedCounter = 0;
+  checkIfLoginClicked(event: any) {
+    this.btnClickedCounter++;
+  }
 }

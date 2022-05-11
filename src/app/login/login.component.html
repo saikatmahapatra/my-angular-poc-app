@@ -1,7 +1,7 @@
 <p>login works!</p>
 
 <h5>Reactive Form</h5>
-<form [formGroup]="loginForm" (ngSubmit)="login()">
+<form [formGroup]="loginForm" (ngSubmit)="login()" *ngIf="!isUserLoggedIn" >
     <div>
         <label>User Name</label>
         <input type="text" formControlName="username">  
@@ -16,7 +16,7 @@
         <div *ngIf="hasError('password', 'required')">This field is required</div>
     </div>
     
-    <button type="submit">Submit</button>
+    <button type="submit" (click)="sendToParent()">Submit</button>
 
     <p>loginForm.value => {{loginForm.value|json}}</p>
     <p>loginForm.status => {{loginForm.status}}</p>

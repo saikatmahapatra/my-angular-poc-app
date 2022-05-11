@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { emailValidator } from '../shared/custom.validator';
 
@@ -10,6 +10,10 @@ import { emailValidator } from '../shared/custom.validator';
 export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder) { }
+
+  @Input() isUserLoggedIn: any; // child reveived value from parent  to child 
+
+  @Output() isLoginButtonClicked = new EventEmitter();
 
   ngOnInit(): void {
   }
@@ -55,5 +59,9 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.invalid) {
       this.validateAllFormFields(this.loginForm);
     }
+  }
+
+  sendToParent(){
+    this.isLoginButtonClicked.emit(true);
   }
 }
