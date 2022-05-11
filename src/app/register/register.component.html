@@ -1,0 +1,13 @@
+<h1>Register - Template Driven form</h1>
+
+<form #registerForm="ngForm" (submit) = "onSubmit(registerForm)">
+    <input type="text" placeholder="enter full name" name="fullName" ngModel #fullname="ngModel" required>
+
+    <div></div>
+
+    <input type="text" placeholder="enter email" name="emailAddress" ngModel #emailAddress="ngModel" required email>
+
+    <button type="submit">Submit</button>
+
+    {{registerForm.value|json}}
+</form>
