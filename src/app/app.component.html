@@ -2,3 +2,4 @@
 <router-outlet></router-outlet>
 <app-login [isUserLoggedIn]="isLoggedIn" (isLoginButtonClicked)="checkIfLoginClicked($event)"></app-login>
 <p>Button Clicked {{btnClickedCounter}} times.</p>
+<p>This is coming from service (unrelated component) = {{msg}}</p>

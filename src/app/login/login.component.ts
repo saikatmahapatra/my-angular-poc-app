@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { emailValidator } from '../shared/custom.validator';
+import { DataService } from '../shared/data.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { emailValidator } from '../shared/custom.validator';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private ds: DataService) { }
 
   @Input() isUserLoggedIn: any; // child reveived value from parent  to child 
 
@@ -63,5 +64,6 @@ export class LoginComponent implements OnInit {
 
   sendToParent(){
     this.isLoginButtonClicked.emit(true);
+    this.ds.changeMessage('you clicked button');
   }
 }
