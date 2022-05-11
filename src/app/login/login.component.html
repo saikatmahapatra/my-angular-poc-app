@@ -1,0 +1,29 @@
+<p>login works!</p>
+
+<h5>Reactive Form</h5>
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div>
+        <label>User Name</label>
+        <input type="text" formControlName="username">  
+        <div *ngIf="hasError('username', 'required')">This field is required</div>
+        <div *ngIf="hasError('username', 'maxlength')">This field should be 12 characters max</div>
+        <div *ngIf="hasError('username', 'invalidEmail')">Please enter a valid email</div>
+    </div>  
+
+    <div>
+        <label>Password</label>
+        <input type="password" formControlName="password">
+        <div *ngIf="hasError('password', 'required')">This field is required</div>
+    </div>
+    
+    <button type="submit">Submit</button>
+
+    <p>loginForm.value => {{loginForm.value|json}}</p>
+    <p>loginForm.status => {{loginForm.status}}</p>
+</form>
+
+
+<p>Two-way binding</p>
+<input type="text" class="" name="firstName" [(ngModel)]="firstName">
+
+{{firstName}}
